@@ -1597,14 +1597,14 @@ function openProductModal(id) {
   imgSlideEl.innerHTML = '<img id="pmMainImgEl" src="'+imgUrls[0]+'" style="max-width:100%;max-height:250px;object-fit:contain" onerror="if(window._imgIdx < window._imgUrls.length) { this.src = window._imgUrls[++window._imgIdx]; } else { this.src=\'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>❄️</text></svg>\'; this.onerror=null; }">';
   document.getElementById('imgPrev').style.display = 'none';
   document.getElementById('imgNext').style.display = 'none';
-  // Specs (from p[12] = properties JSON) - table format like mircli.ru
+  // Specs display - try JSON first, then features, then basic info
   let specsHtml = '';
   if (p[12] && p[12].length > 20) {
     try {
       const props = JSON.parse(p[12]);
       if (props && typeof props === 'object') {
-        let anyProps = false;
         let specRows = '<table style="width:100%;border-collapse:collapse;font-size:14px">';
+        let hasProps = false;
         Object.entries(props).forEach(([groupKey, group]) => {
           if (group && group.properties && Array.isArray(group.properties)) {
             if (group.real_properties_group_name) {
@@ -1613,25 +1613,45 @@ function openProductModal(id) {
             group.properties.forEach(prop => {
               if (prop.property_name && prop.property_value) {
                 specRows += '<tr><td style="padding:6px 0;color:var(--text-sec);border-bottom:1px solid var(--border);width:60%">'+prop.property_name+(prop.property_units?' <span style="font-size:12px">'+prop.property_units+'</span>':'')+'</td><td style="padding:6px 0;font-weight:600;border-bottom:1px solid var(--border)">'+prop.property_value+'</td></tr>';
-                anyProps = true;
+                hasProps = true;
               }
             });
           }
         });
         specRows += '</table>';
-        if (anyProps) {
+        if (hasProps) {
           specsHtml = '<h3 style="font-size:16px;font-weight:700;margin-bottom:12px">Характеристики</h3>' + specRows;
         }
       }
-    } catch(e) { 
-      // If props JSON is invalid, try to show features instead
-      if (p[11] && p[11].length > 10) {
-        specsHtml = '<h3 style="font-size:16px;font-weight:700;margin-bottom:12px">Особенности</h3><div style="font-size:14px;line-height:1.6">'+p[11]+'</div>';
-      }
+    } catch(e) {}
+  }
+  
+  // If no specs from JSON, show features as formatted list
+  if (!specsHtml && p[11] && p[11].length > 10) {
+    // Parse features HTML and display as clean list
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = p[11];
+    const liItems = tempDiv.querySelectorAll('li');
+    if (liItems.length > 0) {
+      let featRows = '<table style="width:100%;border-collapse:collapse;font-size:14px">';
+      liItems.forEach(li => {
+        featRows += '<tr><td style="padding:4px 0;border-bottom:1px solid var(--border);color:var(--text)">• '+li.textContent.trim()+'</td></tr>';
+      });
+      featRows += '</table>';
+      specsHtml = '<h3 style="font-size:16px;font-weight:700;margin-bottom:12px">Особенности</h3>' + featRows;
+    } else {
+      specsHtml = '<h3 style="font-size:16px;font-weight:700;margin-bottom:12px">Особенности</h3><div style="font-size:14px;line-height:1.8">'+p[11]+'</div>';
     }
-  } else if (p[11] && p[11].length > 10) {
-    // No props, show features
-    specsHtml = '<h3 style="font-size:16px;font-weight:700;margin-bottom:12px">Особенности</h3><div style="font-size:14px;line-height:1.6">'+p[11]+'</div>';
+  }
+  
+  // If still no specs, show basic product info
+  if (!specsHtml) {
+    let basicRows = '<table style="width:100%;border-collapse:collapse;font-size:14px">';
+    if (p[5]) basicRows += '<tr><td style="padding:6px 0;color:var(--text-sec);border-bottom:1px solid var(--border)">Бренд</td><td style="padding:6px 0;font-weight:600;border-bottom:1px solid var(--border)">'+p[5]+'</td></tr>';
+    if (p[14]) basicRows += '<tr><td style="padding:6px 0;color:var(--text-sec);border-bottom:1px solid var(--border)">Страна</td><td style="padding:6px 0;font-weight:600;border-bottom:1px solid var(--border)">'+p[14]+'</td></tr>';
+    if (p[13] == 1) basicRows += '<tr><td style="padding:6px 0;color:var(--text-sec);border-bottom:1px solid var(--border)">Тип</td><td style="padding:6px 0;font-weight:600;border-bottom:1px solid var(--border)">Инвертор</td></tr>';
+    basicRows += '</table>';
+    specsHtml = '<h3 style="font-size:16px;font-weight:700;margin-bottom:12px">Характеристики</h3>' + basicRows;
   }
   document.getElementById('pmSpecs').innerHTML = specsHtml;
   // Features
