@@ -1060,7 +1060,7 @@ async function loadProducts() {
       const data = await resp.json();
       ALL_PRODUCTS = data.p;
       CATEGORIES = data.cats;
-      localStorage.setItem('prokhlandiya_products', JSON.stringify({v:3, p:ALL_PRODUCTS, cats:CATEGORIES}));
+      localStorage.setItem('prokhlandiya_products', JSON.stringify({v:4, p:ALL_PRODUCTS, cats:CATEGORIES}));
     }
     buildCategorySidebar();
     productsLoaded = true;
@@ -1126,7 +1126,7 @@ function init() {
     if (cached) {
       const parsed = JSON.parse(cached);
       // Clear if version mismatch or data format changed
-      if (!parsed.v || parsed.v !== 3) {
+      if (!parsed.v || parsed.v !== 4) {
         localStorage.removeItem('prokhlandiya_products');
       }
     }
