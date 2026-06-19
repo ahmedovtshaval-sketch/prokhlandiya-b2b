@@ -1623,7 +1623,15 @@ function openProductModal(id) {
           specsHtml = '<h3 style="font-size:16px;font-weight:700;margin-bottom:12px">Характеристики</h3>' + specRows;
         }
       }
-    } catch(e) { console.warn('Props parse error:', e); }
+    } catch(e) { 
+      // If props JSON is invalid, try to show features instead
+      if (p[11] && p[11].length > 10) {
+        specsHtml = '<h3 style="font-size:16px;font-weight:700;margin-bottom:12px">Особенности</h3><div style="font-size:14px;line-height:1.6">'+p[11]+'</div>';
+      }
+    }
+  } else if (p[11] && p[11].length > 10) {
+    // No props, show features
+    specsHtml = '<h3 style="font-size:16px;font-weight:700;margin-bottom:12px">Особенности</h3><div style="font-size:14px;line-height:1.6">'+p[11]+'</div>';
   }
   document.getElementById('pmSpecs').innerHTML = specsHtml;
   // Features
