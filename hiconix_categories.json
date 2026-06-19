@@ -1,0 +1,602 @@
+[
+  {
+    "id": 1,
+    "name": "Кондиционеры",
+    "parent": "",
+    "link": "/kondicionery/"
+  },
+  {
+    "id": 2,
+    "name": "VRF-VRV-ARV системы",
+    "parent": "",
+    "link": "/vrf-vrv-arv/"
+  },
+  {
+    "id": 3,
+    "name": "Промышленное оборудование",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/"
+  },
+  {
+    "id": 4,
+    "name": "Тепловые насосы",
+    "parent": "",
+    "link": "/teplovye-nasosy/"
+  },
+  {
+    "id": 5,
+    "name": "Вентиляция",
+    "parent": "",
+    "link": "/ventilyaciya/"
+  },
+  {
+    "id": 6,
+    "name": "Расходные материалы",
+    "parent": "",
+    "link": "/raskhodnye/"
+  },
+  {
+    "id": 20,
+    "name": "Настенные внутренние блоки VRF ARV систем",
+    "parent": "",
+    "link": "/vrf-vrv-arv/vnutrennie-bloki-vrf-arv/nastennye-vrf-arv-bloki/"
+  },
+  {
+    "id": 21,
+    "name": "Дополнительное оборудование тепловых насосов",
+    "parent": "",
+    "link": "/teplovye-nasosy/dopolnitelnoe-oborudovanie-teplovyh-nasosov/"
+  },
+  {
+    "id": 22,
+    "name": "Крышный кондиционер руфтоп",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/kryshnyj-kondicioner-ruftop/"
+  },
+  {
+    "id": 23,
+    "name": "Мульти сплит-системы",
+    "parent": "",
+    "link": "/kondicionery/multi-split-sistemy/"
+  },
+  {
+    "id": 24,
+    "name": "Наружные блоки VRF ARV системы",
+    "parent": "",
+    "link": "/vrf-vrv-arv/naruzhnye-bloki-vrf-arv/"
+  },
+  {
+    "id": 25,
+    "name": "Прецизионный кондиционер",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/precizionnyj-kondicioner/"
+  },
+  {
+    "id": 26,
+    "name": "Сплит системы",
+    "parent": "",
+    "link": "/kondicionery/split-sistemy/"
+  },
+  {
+    "id": 27,
+    "name": "Тепловые насосы вода-вода",
+    "parent": "",
+    "link": "/teplovye-nasosy/teplovye-nasosy-voda-voda/"
+  },
+  {
+    "id": 28,
+    "name": "Тепловые насосы воздух-вода",
+    "parent": "",
+    "link": "/teplovye-nasosy/teplovye-nasosy-vozduh-voda/"
+  },
+  {
+    "id": 29,
+    "name": "Тепловые насосы воздух-воздух",
+    "parent": "",
+    "link": "/teplovye-nasosy/teplovye-nasosy-vozduh-vozduh/"
+  },
+  {
+    "id": 30,
+    "name": "Фанкойлы",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/fankojly/"
+  },
+  {
+    "id": 31,
+    "name": "Чиллеры",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/chillery/"
+  },
+  {
+    "id": 32,
+    "name": "VRF-VRV-ARV системы оптом",
+    "parent": "",
+    "link": "/vrf-vrv-arv/vrf-vrv-arv-optom/"
+  },
+  {
+    "id": 33,
+    "name": "Внешние блоки VRF-ARV системы",
+    "parent": "",
+    "link": "/vrf-vrv-arv/vneshnie-bloki-vrf-arv/"
+  },
+  {
+    "id": 34,
+    "name": "Мультизональные системы VRF-VRV-ARV",
+    "parent": "",
+    "link": "/vrf-vrv-arv/multizonalnye-sistemy-vrf-vrv-arv/"
+  },
+  {
+    "id": 35,
+    "name": "Установка и монтаж мультизональных систем VRF-VRV-ARV",
+    "parent": "",
+    "link": "/vrf-vrv-arv/ustanovka-i-montazh-multizonalnyh-sistem-vrf-vrv-arv/"
+  },
+  {
+    "id": 36,
+    "name": "Опции к мультизональным системам",
+    "parent": "",
+    "link": "/vrf-vrv-arv/opcii-k-vrf-systemam/"
+  },
+  {
+    "id": 39,
+    "name": "Комплект зимний",
+    "parent": "",
+    "link": "/kondicionery/opcii-dlya-kondicionerov/komplekt-zimnij/"
+  },
+  {
+    "id": 40,
+    "name": "Пульты управления к кондиционерам",
+    "parent": "",
+    "link": "/kondicionery/opcii-dlya-kondicionerov/pulty/"
+  },
+  {
+    "id": 41,
+    "name": "Фитинги медные",
+    "parent": "",
+    "link": "/raskhodnye/fitingi-mednye/"
+  },
+  {
+    "id": 43,
+    "name": "Приточно-вытяжные установки",
+    "parent": "",
+    "link": "/ventilyaciya/pritochno-vytyazhnaya-ustanovka/"
+  },
+  {
+    "id": 44,
+    "name": "Дополнительное оборудование и аксессуары ARV системам",
+    "parent": "",
+    "link": "/vrf-vrv-arv/opcii-k-arv-systemam/"
+  },
+  {
+    "id": 45,
+    "name": "Вытяжные установки",
+    "parent": "",
+    "link": "/ventilyaciya/vytyazhnaya-ustanovka/"
+  },
+  {
+    "id": 46,
+    "name": "Приточные установки",
+    "parent": "",
+    "link": "/ventilyaciya/pritochnaya-ustanovka/"
+  },
+  {
+    "id": 47,
+    "name": "Сетевые элементы",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/"
+  },
+  {
+    "id": 50,
+    "name": "Вертикальные приточно-вытяжные установки",
+    "parent": "",
+    "link": "/ventilyaciya/vertikalnaya-pritochno-vytyazhnaya-ustanovka/"
+  },
+  {
+    "id": 51,
+    "name": "Горизонтальные приточно-вытяжные установки",
+    "parent": "",
+    "link": "/ventilyaciya/gorizontalnaya-pritochno-vytyazhnaya-ustanovka/"
+  },
+  {
+    "id": 52,
+    "name": "Подвесные приточно-вытяжные установки",
+    "parent": "",
+    "link": "/ventilyaciya/podvesnaya-pritochno-vytyazhnaya-ustanovka/"
+  },
+  {
+    "id": 55,
+    "name": "Подвесные вытяжные установки",
+    "parent": "",
+    "link": "/ventilyaciya/podvesnaya-vytyazhnaya-ustanovka/"
+  },
+  {
+    "id": 58,
+    "name": "Подвесные приточные установки",
+    "parent": "",
+    "link": "/ventilyaciya/podvesnaya-pritochnaya-ustanovka/"
+  },
+  {
+    "id": 60,
+    "name": "Воздушные клапаны",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/vozdushnye-klapany/"
+  },
+  {
+    "id": 61,
+    "name": "Вентиляторы",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/ventilyatory/"
+  },
+  {
+    "id": 62,
+    "name": "Демпферы",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/dempfery/"
+  },
+  {
+    "id": 63,
+    "name": "Рекуператоры",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/rekuperatory/"
+  },
+  {
+    "id": 64,
+    "name": "Фильтры для систем вентиляции",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/filtry-dlya-sistem-ventilyacii/"
+  },
+  {
+    "id": 65,
+    "name": "Заслонки",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/zaslonki/"
+  },
+  {
+    "id": 66,
+    "name": "Нагреватели",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/nagrevateli/"
+  },
+  {
+    "id": 67,
+    "name": "Охладители",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/ohladiteli/"
+  },
+  {
+    "id": 68,
+    "name": "Смесительные узлы",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/smesitelnye-uzly/"
+  },
+  {
+    "id": 69,
+    "name": "Шумоглушители",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/shumoglushiteli/"
+  },
+  {
+    "id": 71,
+    "name": "Вертикальные приточно-вытяжные установки с роторным рекуператором",
+    "parent": "",
+    "link": "/ventilyaciya/vertikalnaya-pritochno-vytyazhnaya-ustanovka-s-rotorom/"
+  },
+  {
+    "id": 72,
+    "name": "Горизонтальные приточно-вытяжные установки с роторным рекуператором",
+    "parent": "",
+    "link": "/ventilyaciya/gorizontalnaya-pritochno-vytyazhnaya-ustanovka-s-rotorom/"
+  },
+  {
+    "id": 73,
+    "name": "Подвесные приточно-вытяжные установки с роторным рекуператором",
+    "parent": "",
+    "link": "/ventilyaciya/podvesnaya-pritochno-vytyazhnaya-ustanovka-s-rotorom/"
+  },
+  {
+    "id": 74,
+    "name": "Подвесные приточные установки с электрическим нагревателем",
+    "parent": "",
+    "link": "/ventilyaciya/podvesnaya-pritochno-vytyazhnaya-ustanovka-s-electro-nagrevatelem/"
+  },
+  {
+    "id": 80,
+    "name": "Клапаны огнезащитный круглого сечения",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/klapan-ognezashchitnyj-kruglogo-secheniya/"
+  },
+  {
+    "id": 81,
+    "name": "Клапан дымоудаления",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/klapan-dymoudaleniya/"
+  },
+  {
+    "id": 82,
+    "name": "Обратный клапан",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/obratnyj-klapan/"
+  },
+  {
+    "id": 83,
+    "name": "Клапаны с приводом",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/klapan-s-privodom/"
+  },
+  {
+    "id": 84,
+    "name": "Вентилятор вытяжной с датчиком движения",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/ventilyator-vytyazhnoj-s-datchikom-dvizheniya/"
+  },
+  {
+    "id": 85,
+    "name": "Вентилятор подпора воздуха",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/ventilyator-podpora-vozduha/"
+  },
+  {
+    "id": 95,
+    "name": "Демпфер перекрывающий",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/dempfer-perekryvayushchij/"
+  },
+  {
+    "id": 96,
+    "name": "Демпфер перекрывающий под электропривод",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/dempfer-perekryvayushchij-pod-elektroprivod/"
+  },
+  {
+    "id": 98,
+    "name": "Заслонка с приводом",
+    "parent": "",
+    "link": "/ventilyaciya/setevye-elementy/zaslonka-s-privodom/"
+  },
+  {
+    "id": 100,
+    "name": "Наружные блоки мульти сплит-системы на 2 комнаты",
+    "parent": "",
+    "link": "/kondicionery/multi-split-sistemy/2-komnaty/"
+  },
+  {
+    "id": 101,
+    "name": "Наружные блоки мульти сплит-системы на 3 комнаты",
+    "parent": "",
+    "link": "/kondicionery/multi-split-sistemy/3-komnaty/"
+  },
+  {
+    "id": 102,
+    "name": "Наружные блоки мульти сплит-системы на 4 комнаты",
+    "parent": "",
+    "link": "/kondicionery/multi-split-sistemy/4-komnaty/"
+  },
+  {
+    "id": 103,
+    "name": "Наружные блоки мульти сплит-системы на 5 комнат",
+    "parent": "",
+    "link": "/kondicionery/multi-split-sistemy/5-komnat/"
+  },
+  {
+    "id": 104,
+    "name": "Наружные блоки мульти сплит-системы на 8 комнат",
+    "parent": "",
+    "link": "/kondicionery/multi-split-sistemy/8-komnat/"
+  },
+  {
+    "id": 105,
+    "name": "Наружные блоки мульти сплит-системы на 9 комнат",
+    "parent": "",
+    "link": "/kondicionery/multi-split-sistemy/9-komnat/"
+  },
+  {
+    "id": 106,
+    "name": "Бак накопитель теплового насоса (воздух-вода)",
+    "parent": "",
+    "link": "/teplovye-nasosy/teplovye-nasosy-vozduh-voda/bak-nakopitel-vozduh-voda/"
+  },
+  {
+    "id": 107,
+    "name": "Настенные внутренние блоки мульти сплит-системы",
+    "parent": "",
+    "link": "/kondicionery/multi-split-sistemy/vnutrennie-bloki-multi-split-sistemy/nastennye-vnutrennie-bloki-multi-split-sistemy/"
+  },
+  {
+    "id": 108,
+    "name": "Гидромодуль теплового насоса (воздух-вода)",
+    "parent": "",
+    "link": "/teplovye-nasosy/dopolnitelnoe-oborudovanie-teplovyh-nasosov/gidromodul-teplovogo-nasosa/"
+  },
+  {
+    "id": 109,
+    "name": "Дополнительное оборудование к мульти сплит-системам",
+    "parent": "",
+    "link": "/kondicionery/multi-split-sistemy/opcii-k-multi-split/"
+  },
+  {
+    "id": 110,
+    "name": "Дополнительное оборудование к прецизионным кондиционерам",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/precizionnyj-kondicioner/opcii-k-precizionnym-kondicioneram/"
+  },
+  {
+    "id": 111,
+    "name": "Дополнительное оборудование и аксессуары к сплит-системам",
+    "parent": "",
+    "link": "/kondicionery/split-sistemy/opcii-k-split-sistemam/"
+  },
+  {
+    "id": 112,
+    "name": "Дополнительное оборудование к чиллерам",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/chillery/opcii-k-chilleram/"
+  },
+  {
+    "id": 113,
+    "name": "Канальные внутренние блоки VRF ARV систем",
+    "parent": "",
+    "link": "/vrf-vrv-arv/vnutrennie-bloki-vrf-arv/kanalnye-vrf-arv-bloki/"
+  },
+  {
+    "id": 114,
+    "name": "Канальные кондиционеры",
+    "parent": "",
+    "link": "/kondicionery/split-sistemy/kanalnye-kondicionery/"
+  },
+  {
+    "id": 115,
+    "name": "Канальные фанкойлы",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/fankojly/kanalnye-fankojly/"
+  },
+  {
+    "id": 116,
+    "name": "Кассетные VRF ARV блоки",
+    "parent": "",
+    "link": "/vrf-vrv-arv/vnutrennie-bloki-vrf-arv/kassetnye-vrf-arv-bloki/"
+  },
+  {
+    "id": 117,
+    "name": "Кассетные кондиционеры",
+    "parent": "",
+    "link": "/kondicionery/split-sistemy/kassetnye-kondicionery/"
+  },
+  {
+    "id": 118,
+    "name": "Кассетные фанкойлы",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/fankojly/kassetnye-fankojly/"
+  },
+  {
+    "id": 119,
+    "name": "Колонные кондиционеры",
+    "parent": "",
+    "link": "/kondicionery/split-sistemy/kolonnye-kondicionery/"
+  },
+  {
+    "id": 120,
+    "name": "Конденсатор выносной воздушного охлаждения",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/precizionnyj-kondicioner/kondensator-vynosnoj-vozdushnogo-ohlazhdeniya/"
+  },
+  {
+    "id": 121,
+    "name": "Напольно-потолочные внутренние блоки VRF ARV систем",
+    "parent": "",
+    "link": "/vrf-vrv-arv/vnutrennie-bloki-vrf-arv/napolno-potolochnye-vrf-arv-bloki/"
+  },
+  {
+    "id": 122,
+    "name": "Напольно-потолочные кондиционеры",
+    "parent": "",
+    "link": "/kondicionery/split-sistemy/napolno-potolochnye-kondicionery/"
+  },
+  {
+    "id": 123,
+    "name": "Наружные блоки тепловых насосов (вода-вода)",
+    "parent": "",
+    "link": "/teplovye-nasosy/teplovye-nasosy-voda-voda/naruzhnye-bloki-voda-voda-dlya-teplovyh-nasosov/"
+  },
+  {
+    "id": 124,
+    "name": "Наружные блоки тепловых насосов (воздух-вода)",
+    "parent": "",
+    "link": "/teplovye-nasosy/teplovye-nasosy-vozduh-voda/naruzhnye-bloki-vozduh-voda-dlya-teplovyh-nasosov/"
+  },
+  {
+    "id": 125,
+    "name": "Наружные блоки тепловых насосов (воздух-воздух)",
+    "parent": "",
+    "link": "/teplovye-nasosy/teplovye-nasosy-vozduh-vozduh/naruzhnye-bloki-vozduh-vozduh-dlya-teplovyh-nasosov/"
+  },
+  {
+    "id": 126,
+    "name": "Наружные универсальные блоки кондиционеров",
+    "parent": "",
+    "link": "/kondicionery/split-sistemy/naruzhnye-universalnye-bloki-kondicionerov/"
+  },
+  {
+    "id": 128,
+    "name": "Настенные кондиционеры",
+    "parent": "",
+    "link": "/kondicionery/split-sistemy/nastennye-kondicionery/"
+  },
+  {
+    "id": 129,
+    "name": "Настенные фанкойлы",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/fankojly/nastennye-fankojly/"
+  },
+  {
+    "id": 130,
+    "name": "Прецизионный кондиционер для метрологических лабораторий",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/precizionnyj-kondicioner/precizionnyj-kondicioner-dlya-metrologicheskih-laboratorij/"
+  },
+  {
+    "id": 131,
+    "name": "Прецизионный кондиционер в серверных",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/precizionnyj-kondicioner/precizionnyj-kondicioner-dlya-servernyh/"
+  },
+  {
+    "id": 132,
+    "name": "Прецизионный кондиционер для телекоммуникационных",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/precizionnyj-kondicioner/precizionnyj-kondicioner-dlya-telekommunikacionnyh/"
+  },
+  {
+    "id": 133,
+    "name": "Прецизионный кондиционер с водяным охлаждением",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/precizionnyj-kondicioner/precizionnyj-kondicioner-s-vodyanym-ohlazhdeniem/"
+  },
+  {
+    "id": 134,
+    "name": "Прецизионный кондиционер с воздушным охлаждением",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/precizionnyj-kondicioner/precizionnyj-kondicioner-s-vozdushnym-ohlazhdeniem/"
+  },
+  {
+    "id": 135,
+    "name": "Чиллеры для охлаждения воды",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/chillery/chillery-dlya-ohlazhdeniya-vody/"
+  },
+  {
+    "id": 136,
+    "name": "Чиллеры для охлаждения воздуха",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/chillery/chillery-dlya-ohlazhdeniya-vozduha/"
+  },
+  {
+    "id": 137,
+    "name": "Чиллеры с градирней",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/chillery/chillery-s-gradirnej/"
+  },
+  {
+    "id": 138,
+    "name": "Инверторные сплит-системы",
+    "parent": "",
+    "link": "/kondicionery/invertornye-split-sistemy/"
+  },
+  {
+    "id": 139,
+    "name": "Наружные инверторные блоки кондиционеров",
+    "parent": "",
+    "link": "/kondicionery/naruzhnye-invertornye-bloki-konditsionerov/"
+  },
+  {
+    "id": 140,
+    "name": "Универсальные фанкойлы",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/fankojly/universalnye-fankoyly/"
+  },
+  {
+    "id": 141,
+    "name": "Фанкойлы для отопления",
+    "parent": "",
+    "link": "/promyshlennoe-oborudovanie/fankojly/fankoyly-dlya-otopleniya/"
+  }
+]
