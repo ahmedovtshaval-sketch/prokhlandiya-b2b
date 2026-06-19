@@ -1126,7 +1126,7 @@ function init() {
     if (cached) {
       const parsed = JSON.parse(cached);
       // Clear if version mismatch or data format changed
-      if (!parsed.v || parsed.v !== 2) {
+      if (!parsed.v || parsed.v !== 3) {
         localStorage.removeItem('prokhlandiya_products');
       }
     }
