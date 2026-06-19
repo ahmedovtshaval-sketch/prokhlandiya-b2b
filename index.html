@@ -1557,15 +1557,24 @@ function openProductModal(id) {
   stockEl.innerHTML = '<span style="'+stockClass+';font-weight:600">' + (p[7]===0?'Под заказ':p[7]===2?'Заканчивается':'В наличии') + '</span>';
   // Image carousel
   const imgDiv = document.getElementById('pmImg');
-  // Build image URLs array: local + external
-  const imgUrls = [];
-  imgUrls.push('images/'+p[0]+'.webp');
-  if (p[9] && p[9].length > 10) imgUrls.push(p[9]);
+  // Parse images array from p[9] (JSON array string)
+  let imgUrls = [];
+  try {
+    const parsed = JSON.parse(p[9]);
+    if (Array.isArray(parsed)) {
+      imgUrls = parsed.slice(0, 6); // max 6 images
+    }
+  } catch(e) {}
+  // Fallback to external URL if no images
+  if (imgUrls.length === 0 && p[9] && p[9].length > 10) {
+    imgUrls = [p[9]];
+  }
   // Carousel HTML
   let carouselHtml = '<div id="imgCarousel" style="position:relative;width:100%;height:250px"><div id="imgSlide" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center"></div>';
   if (imgUrls.length > 1) {
     carouselHtml += '<button id="imgPrev" onclick="imgSlide(-1)" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(0,91,153,0.8);border:none;color:#fff;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:20px;z-index:5">‹</button>';
     carouselHtml += '<button id="imgNext" onclick="imgSlide(1)" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(0,91,153,0.8);border:none;color:#fff;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:20px;z-index:5">›</button>';
+    carouselHtml += '<div id="imgCounter" style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.5);color:#fff;padding:2px 8px;border-radius:10px;font-size:12px"></div>';
     carouselHtml += '<div id="imgDots" style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:6px"></div>';
   }
   carouselHtml += '</div>';
@@ -1625,6 +1634,8 @@ function imgSlide(dir) {
   if (!window._imgUrls || window._imgUrls.length <= 1) return;
   window._imgIdx = (window._imgIdx + dir + window._imgUrls.length) % window._imgUrls.length;
   document.getElementById('pmMainImgEl').src = window._imgUrls[window._imgIdx];
+  const counter = document.getElementById('imgCounter');
+  if (counter) counter.textContent = (window._imgIdx+1)+'/'+window._imgUrls.length;
   // Update dots
   const dots = document.getElementById('imgDots');
   if (dots) {
@@ -1634,6 +1645,8 @@ function imgSlide(dir) {
 function imgGoTo(idx) {
   window._imgIdx = idx;
   document.getElementById('pmMainImgEl').src = window._imgUrls[idx];
+  const counter = document.getElementById('imgCounter');
+  if (counter) counter.textContent = (window._imgIdx+1)+'/'+window._imgUrls.length;
   // Update dots
   const dots = document.getElementById('imgDots');
   if (dots) {
