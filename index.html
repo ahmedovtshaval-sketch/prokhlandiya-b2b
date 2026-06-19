@@ -1060,7 +1060,7 @@ async function loadProducts() {
       const data = await resp.json();
       ALL_PRODUCTS = data.p;
       CATEGORIES = data.cats;
-      localStorage.setItem('prokhlandiya_products', JSON.stringify({v:2, ...data}));
+      localStorage.setItem('prokhlandiya_products', JSON.stringify({v:3, p:ALL_PRODUCTS, cats:CATEGORIES}));
     }
     buildCategorySidebar();
     productsLoaded = true;
@@ -1120,17 +1120,19 @@ let filterStock = 'all';
 
 // ============ INIT ============
 function init() {
-  // Clear old products cache (pre-version format)
+  // Clear old products cache - always refresh to get latest data
   try {
     const cached = localStorage.getItem('prokhlandiya_products');
     if (cached) {
       const parsed = JSON.parse(cached);
-      // If cache has old format (no v field and images is array JSON string), clear it
-      if (!parsed.v && parsed.p && parsed.p[0] && Array.isArray(parsed.p[0]) && typeof parsed.p[0][9] === 'string' && parsed.p[0][9].startsWith('[')) {
+      // Clear if version mismatch or data format changed
+      if (!parsed.v || parsed.v !== 2) {
         localStorage.removeItem('prokhlandiya_products');
       }
     }
-  } catch(e) {}
+  } catch(e) {
+    localStorage.removeItem('prokhlandiya_products');
+  }
   loadProducts();
   // Try to restore session from localStorage or sessionStorage
   const localUser = localStorage.getItem('b2b_user');
