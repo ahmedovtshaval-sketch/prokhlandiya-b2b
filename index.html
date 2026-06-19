@@ -1557,32 +1557,48 @@ function openProductModal(id) {
   stockEl.innerHTML = '<span style="'+stockClass+';font-weight:600">' + (p[7]===0?'Под заказ':p[7]===2?'Заканчивается':'В наличии') + '</span>';
   // Image carousel
   const imgDiv = document.getElementById('pmImg');
-  imgDiv.innerHTML = '<div id="imgCarousel" style="position:relative;width:100%;height:100%"><div id="imgSlide" style="width:100%;height:250px;display:flex;align-items:center;justify-content:center"></div><button id="imgPrev" onclick="imgSlide(-1)" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(0,91,153,0.8);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;display:none">‹</button><button id="imgNext" onclick="imgSlide(1)" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(0,91,153,0.8);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;display:none">›</button><div id="imgDots" style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:6px"></div></div>';
-  const imgSlide = document.getElementById('imgSlide');
-  // Single image (local)
-  const localImg = 'images/'+p[0]+'.webp';
-  imgSlide.innerHTML = '<img '+'src='+'"'+localImg+'"'+' alt="" id="pmMainImgEl" style="max-width:100%;max-height:250px;object-fit:contain" onerror="var alt=\''+p[9]+'\';this.onerror=function(){this.src=\'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>❄️</text></svg>\'};if(alt&&alt.startsWith(\'http\'))this.src=alt">';
+  // Build image URLs array: local + external
+  const imgUrls = [];
+  imgUrls.push('images/'+p[0]+'.webp');
+  if (p[9] && p[9].length > 10) imgUrls.push(p[9]);
+  // Carousel HTML
+  let carouselHtml = '<div id="imgCarousel" style="position:relative;width:100%;height:250px"><div id="imgSlide" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center"></div>';
+  if (imgUrls.length > 1) {
+    carouselHtml += '<button id="imgPrev" onclick="imgSlide(-1)" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(0,91,153,0.8);border:none;color:#fff;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:20px;z-index:5">‹</button>';
+    carouselHtml += '<button id="imgNext" onclick="imgSlide(1)" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(0,91,153,0.8);border:none;color:#fff;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:20px;z-index:5">›</button>';
+    carouselHtml += '<div id="imgDots" style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:6px"></div>';
+  }
+  carouselHtml += '</div>';
+  imgDiv.innerHTML = carouselHtml;
+  const imgSlideEl = document.getElementById('imgSlide');
+  window._imgUrls = imgUrls;
+  window._imgIdx = 0;
+  // Load first image
+  imgSlideEl.innerHTML = '<img id="pmMainImgEl" src="'+imgUrls[0]+'" style="max-width:100%;max-height:250px;object-fit:contain" onerror="if(window._imgIdx < window._imgUrls.length) { this.src = window._imgUrls[++window._imgIdx]; } else { this.src=\'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>❄️</text></svg>\'; this.onerror=null; }">';
   document.getElementById('imgPrev').style.display = 'none';
   document.getElementById('imgNext').style.display = 'none';
-  // Specs (from p[12] = properties JSON)
+  // Specs (from p[12] = properties JSON) - table format like mircli.ru
   let specsHtml = '';
   if (p[12] && p[12].length > 20) {
     try {
       const props = JSON.parse(p[12]);
       if (props && typeof props === 'object') {
         let anyProps = false;
-        let specRows = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
+        let specRows = '<table style="width:100%;border-collapse:collapse;font-size:14px">';
         Object.entries(props).forEach(([groupKey, group]) => {
           if (group && group.properties && Array.isArray(group.properties)) {
-            anyProps = true;
+            if (group.real_properties_group_name) {
+              specRows += '<tr><td colspan="2" style="font-weight:700;padding:10px 0 5px 0;border-bottom:2px solid var(--primary);color:var(--primary)">'+group.real_properties_group_name+'</td></tr>';
+            }
             group.properties.forEach(prop => {
               if (prop.property_name && prop.property_value) {
-                specRows += '<div style="background:var(--bg);padding:8px 12px;border-radius:6px"><div style="font-size:11px;color:var(--text-sec);margin-bottom:2px">'+prop.property_name+(prop.property_units?' '+prop.property_units:'')+'</div><div style="font-size:14px;font-weight:600">'+prop.property_value+'</div></div>';
+                specRows += '<tr><td style="padding:6px 0;color:var(--text-sec);border-bottom:1px solid var(--border);width:60%">'+prop.property_name+(prop.property_units?' <span style="font-size:12px">'+prop.property_units+'</span>':'')+'</td><td style="padding:6px 0;font-weight:600;border-bottom:1px solid var(--border)">'+prop.property_value+'</td></tr>';
+                anyProps = true;
               }
             });
           }
         });
-        specRows += '</div>';
+        specRows += '</table>';
         if (anyProps) {
           specsHtml = '<h3 style="font-size:16px;font-weight:700;margin-bottom:12px">Характеристики</h3>' + specRows;
         }
@@ -1606,7 +1622,23 @@ function openProductModal(id) {
   document.body.style.overflow = 'hidden';
 }
 function imgSlide(dir) {
-  // Reserved for multiple images
+  if (!window._imgUrls || window._imgUrls.length <= 1) return;
+  window._imgIdx = (window._imgIdx + dir + window._imgUrls.length) % window._imgUrls.length;
+  document.getElementById('pmMainImgEl').src = window._imgUrls[window._imgIdx];
+  // Update dots
+  const dots = document.getElementById('imgDots');
+  if (dots) {
+    dots.innerHTML = window._imgUrls.map((_, i) => '<span onclick="imgGoTo('+i+')" id="imgDot'+i+'" style="width:8px;height:8px;border-radius:50%;background:'+(i===window._imgIdx?'#005B99':'#ccc')+';cursor:pointer;display:inline-block"></span>').join('');
+  }
+}
+function imgGoTo(idx) {
+  window._imgIdx = idx;
+  document.getElementById('pmMainImgEl').src = window._imgUrls[idx];
+  // Update dots
+  const dots = document.getElementById('imgDots');
+  if (dots) {
+    dots.innerHTML = window._imgUrls.map((_, i) => '<span onclick="imgGoTo('+i+')" id="imgDot'+i+'" style="width:8px;height:8px;border-radius:50%;background:'+(i===window._imgIdx?'#005B99':'#ccc')+';cursor:pointer;display:inline-block"></span>').join('');
+  }
 }
 function closeProductModal() {
   document.getElementById('productModal').classList.remove('open');
