@@ -1121,13 +1121,25 @@ let filterStock = 'all';
 // ============ INIT ============
 function init() {
   loadProducts();
-  const saved = localStorage.getItem('b2b_user') || sessionStorage.getItem('b2b_user');
+  // Try to restore session from localStorage or sessionStorage
+  const localUser = localStorage.getItem('b2b_user');
+  const sessionUser = sessionStorage.getItem('b2b_user');
+  const saved = localUser || sessionUser;
   if (saved) {
-    currentUser = JSON.parse(saved);
-    const storage = localStorage.getItem('b2b_user') ? localStorage : sessionStorage;
-    cart = JSON.parse(storage.getItem('b2b_cart') || '[]');
-    showApp();
+    try {
+      currentUser = JSON.parse(saved);
+      const storage = localUser ? localStorage : sessionStorage;
+      const savedCart = storage.getItem('b2b_cart');
+      cart = savedCart ? JSON.parse(savedCart) : [];
+      showApp();
+      return;
+    } catch(e) {
+      console.warn('Session restore error:', e);
+    }
   }
+  // Pre-fill email if saved
+  const savedEmail = localStorage.getItem('b2b_email');
+  if (savedEmail) document.getElementById('loginEmail').value = savedEmail;
   renderOrders();
   renderDocuments();
 }
@@ -1142,6 +1154,7 @@ function handleLogin() {
   if (email === 'mikhailov@climate-tech.ru' && pass === 'demo123') {
     currentUser = { email, company: 'ООО «КлиматПроект»', inn: '7712345678', contact: 'Михайлов Андрей', phone: '+7 (495) 234-56-78', address: 'г. Москва, ул. Промышленная, д. 15, офис 302' };
     storage.setItem('b2b_user', JSON.stringify(currentUser));
+    localStorage.setItem('b2b_email', email);
     storage.setItem('b2b_cart', JSON.stringify(cart));
     document.getElementById('loginError').classList.remove('show');
     showApp();
