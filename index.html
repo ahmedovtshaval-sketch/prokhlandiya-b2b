@@ -1261,7 +1261,7 @@ function renderProducts() {
         '</div>' +
         '<div class="product-stock '+stockClass+'">'+stockTxt+'</div>' +
         '<div class="product-actions" onclick="event.stopPropagation()">' +
-          '<button class="btn btn-secondary btn-sm" onclick="openProductModal('+p[0]+');event.stopPropagation()">Подробнее</button>' +
+          '<button class="btn btn-secondary btn-sm" onclick="openProductModal('+p[0]+');(event||window.event).stopPropagation()">Подробнее</button>' +
           '<button class="btn btn-primary btn-sm" onclick="addToCart('+p[0]+')" style="margin-top:6px">В корзину</button>' +
         '</div>' +
       '</div>' +
